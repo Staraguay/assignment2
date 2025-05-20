@@ -7,8 +7,8 @@ sudo dnf install -y php php-cli php-mbstring php-xml
 sudo systemctl restart httpd
 cd /var/www
 sudo dnf install git -y
-sudo git clone https://github.com/Staraguay/assignment_2.git
-cd assignment_2
+sudo git clone https://github.com/Staraguay/assignment2.git
+cd assignment2
 sudo chmod +x calculation.py
 sudo chmod +x setup_apache.sh
 sudo ./setup_apache.sh
