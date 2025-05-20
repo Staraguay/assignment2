@@ -9,14 +9,13 @@
 <body>
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
             session_start();
             if (isset($_POST["a"]) && isset($_POST["b"]) && isset($_POST["c"]))
             {
                 $inputA = escapeshellarg($_POST["a"]);
                 $inputB = escapeshellarg($_POST["b"]);
                 $inputC = escapeshellarg($_POST["c"]);
-                
+               
                 $json_response = shell_exec("python3 calculation.py $inputA $inputB $inputC");
                 $response = json_decode($json_response, true);
                 
@@ -26,7 +25,7 @@
                     
                     $_SESSION["submited"] = true;
                     $_SESSION["result"] = $response["result"];
-                    $_SESSION["steps"] = $response["steps"];
+                    $_SESSION["steps"] = nl2br(htmlspecialchars($response["steps"]));
                 }
 
             }
@@ -52,7 +51,7 @@
             <h1 class="text-center">Assignment 2 - Sebastian Taraguay</h1>
             <hr>
             <br>
-            <form action="">
+            <form action="index.php" method="POST" class="form">
                 <div class="mb-3">
                     <label for="a" class="form-label">Insert A value</label>
                     <input type="number" class="form-control" id="a" name="a" required>
@@ -73,10 +72,11 @@
 
                     if(isset($_SESSION["submited"]))
                     {   
-                        print = "<div>
+                        
+                        echo"<div>
                                     <h3>Final result: $result</h3>
                                     <p>Steps:</p>
-                                    <p>$steps</p>
+                                    <pre>$steps</pre>
                                 </div>";
                     }
                     unset($_SESSION["submited"]); // Clear session so it doesn't show on reload
