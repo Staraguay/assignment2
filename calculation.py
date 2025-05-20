@@ -21,4 +21,4 @@ def calculation(a:int,b:int,c:int)-> str:
 if __name__ == "__main__":
     import sys
     a, b, c = map(int, sys.argv[1:4])
-    calculation(a,b,c)
+    print(calculation(a,b,c))
