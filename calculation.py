@@ -1,4 +1,7 @@
+#!".venv\Scripts\python.exe"
+#print("Content-Type: text/html\n")
 import json
+import sys
 def calculation(a:int,b:int,c:int)-> str:
     c3 = int(c)**3
     step1 = "Step 1: c={}, c^3={}\n".format(c,(c3))
@@ -19,6 +22,5 @@ def calculation(a:int,b:int,c:int)-> str:
 
 
 if __name__ == "__main__":
-    import sys
     a, b, c = map(int, sys.argv[1:4])
     print(calculation(a,b,c))
