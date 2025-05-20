@@ -5,7 +5,7 @@ sudo systemctl start httpd
 sudo systemctl enable httpd
 sudo dnf install -y php php-cli php-mbstring php-xml
 sudo systemctl restart httpd
-cd /var/www
+cd /var/www/html
 sudo dnf install git -y
 sudo git clone https://github.com/Staraguay/assignment2.git
 cd assignment2
